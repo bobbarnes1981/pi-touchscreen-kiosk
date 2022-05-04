@@ -20,7 +20,7 @@ lcd_rotate=2
 
 ## install software
 
-`sudo apt-get install xorg lightdm fluxbox midori`
+`sudo apt-get install xorg lightdm fluxbox midori unclutter`
 
 ## configure user
 
@@ -59,6 +59,7 @@ xset s off
 xset s noblank
 SPA_URL=""
 midori -e fullscreen $SPA_URL &
+unclutter -idle 2 &
 ```
 
 add the following to `/home/kiosk/.fluxbox/init`
