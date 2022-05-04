@@ -68,3 +68,37 @@ add the following to `/home/kiosk/.fluxbox/init`
 session.screen0.toolbar.autoHide: false
 session.screen0.toolbar.visible:  false
 ```
+
+## set times for screensaver to work
+
+create file `/home/kiosk/ss_stop.sh`
+
+```
+#!/bin/bash
+xset s off -display :0
+xset s reset -display :0
+```
+
+turns off the screen saver and resets it
+
+create file `/home/kiosk/ss_start.sh`
+
+```
+#!/bin/bash
+xset s blank -display :0
+xset s on -display :0
+xset s 20 -display :0
+```
+
+sets the screensaver to blank, on and 20s delay
+
+make these files executable with `sudo chmod +x <filename>`
+
+update the cron, create the file /etc/cron.d/kiosk
+
+```
+0 6 * * * kiosk /home/kiosk/ss_stop.sh
+0 21 * * * kiosk /home/kiosk/ss_start.sh
+```
+
+starts the screen saver at 21:00 and stops it at 06:00
