@@ -94,7 +94,7 @@ sets the screensaver to blank, on and 20s delay
 
 make these files executable with `sudo chmod +x <filename>`
 
-update the cron, create the file /etc/cron.d/kiosk
+update the cron, create the file `/etc/cron.d/kiosk`
 
 ```
 0 6 * * * kiosk /home/kiosk/ss_stop.sh
